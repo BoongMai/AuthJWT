@@ -1,11 +1,19 @@
 GET http://localhost:4000/post
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6ImR1eTIiLCJpYXQiOjE2NTgzODg3NzV9.dZz5Nc_n5Sd-fCy-XKkOlYaCi0dV45vbYdQ9ngDoGLY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImJvb25nbWFpIiwiaWF0IjoxNjU4Mzk2MzU5LCJleHAiOjE2NTgzOTk5NTl9.xUxmu4ZiGc1HVSMETBiYC0VEL_jX8wZzvU25TtDvH0I
 
 #####
 
-POST  http://localhost:4000/login
- Content-Type: application/json
+POST  http://localhost:5000/login
+Content-Type: application/json
 
  {
-    "username": "duy2"
+    "username": "boongmai"
+ }
+
+###
+POST  http://localhost:5000/token
+Content-Type: application/json
+
+ {
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJ1c2VybmFtZSI6ImJvb25nbWFpIiwiaWF0IjoxNjU4Mzk2NzQwLCJleHAiOjE2NTg0MDAzNDB9.d00y0aQNqLO5qfBEBXAgjyt02fefOJWkN3hQpnXXCxE"
  }

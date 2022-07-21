@@ -7,36 +7,27 @@ const verifyToken = require("./middleware/auth");
 
 app.use(express.json());
 
-const users = [
+const posts = [
   {
-    id: "1",
-    username: "duy",
+    userId: "1",
+    content: "Auth user1",
   },
   {
-    id: "2",
-    username: "duy2",
+    userId: "1",
+    content: "Auth post2 user1",
   },
   {
-    id: "3",
-    username: "boongmai",
+    userId: "2",
+    username: "Auth user2",
+  },
+  {
+    userId: "3",
+    username: "Auth boongmai",
   },
 ];
 
 app.get("/post", verifyToken, (req, res) => {
-  res.json({ user: "Boongmai" });
-});
-
-app.post("/login", (req, res) => {
-  const username = req.body.username;
-  const user = users.find((user) => user.username === username);
-  if (!user) return res.sendStatus("401");
-  const accesstoken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-  if (user) {
-    res.json({
-      username,
-      accesstoken: accesstoken,
-    });
-  }
+  res.json(posts.filter((post) => post.userId == req.userId));
 });
 
 PORT = process.env.PORT || 4000;
